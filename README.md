@@ -122,7 +122,7 @@ RATE_LIMIT_STORAGE_URI=redis://localhost:6379/0
 1. Push repository to GitHub
 2. Create new Web Service on Render
 3. Set build command: `pip install -r requirements.txt`
-4. Set start command: `gunicorn -w 4 -b 0.0.0.0:9999 run:app`
+4. Set start command: `uvicorn src.main:app --host 0.0.0.0 --port 9999`
 5. Add environment variables in dashboard
 6. Deploy
 
@@ -133,13 +133,10 @@ heroku config:set GENIUS_TOKEN=your_token
 git push heroku main
 ```
 
-### Self-Hosted (Gunicorn + Nginx)
+### Self-Hosted (Uvicorn)
 ```bash
-# Install Gunicorn
-pip install gunicorn
-
-# Run with 4 workers
-gunicorn -w 4 -b 127.0.0.1:9999 --timeout 120 run:app
+# Run with uvicorn
+uvicorn src.main:app --host 127.0.0.1 --port 9999 --workers 4
 
 # Configure Nginx as reverse proxy
 # See deployment guides for full setup

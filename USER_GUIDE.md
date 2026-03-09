@@ -1290,7 +1290,7 @@ A: No for public endpoints. Admin endpoints use an API key.
 A: 15 requests/minute per IP. Use caching to stay within limits.
 
 **Q: Can I deploy to production?**
-A: Yes! Use Gunicorn, Nginx reverse proxy, and Redis for distributed caching.
+A: Yes! Use Uvicorn, Nginx reverse proxy, and Redis for distributed caching.
 
 **Q: How do I get timestamped lyrics?**
 A: Add `&timestamps=true` to your request (only from LRCLIB and YouTube Music).
